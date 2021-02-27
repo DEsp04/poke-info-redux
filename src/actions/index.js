@@ -6,6 +6,9 @@ export const fetchPokemons = () => {
 
 
 
+
+  
+
   return async (dispatch) => { 
     const response = await jsonApiCall.get('pokemon/');
 
