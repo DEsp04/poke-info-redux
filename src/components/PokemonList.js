@@ -8,7 +8,8 @@ import { fetchPokemons } from '../actions';
 
 
 
-function PokemonList(props) { 
+function PokemonList(props) {
+  
 
   useEffect(() => { 
     props.fetchPokemons();
