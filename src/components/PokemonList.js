@@ -2,14 +2,15 @@ import React from 'react';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchPokemons } from '../actions';
-
+import { fetchPokemonByName } from '../actions';
+import { Link } from "react-router-dom";
 
 
 
 
 
 function PokemonList(props) {
-  
+  console.log(props)
 
   useEffect(() => { 
     props.fetchPokemons();
@@ -26,9 +27,9 @@ function PokemonList(props) {
   function renderList(){
     return pokemons.map(pokemon => { 
       return (
-        <div>
-          <p key={pokemon.name}>{pokemon.name}</p>
-        </div>
+        <Link to="/pokemon-info">
+          <p onClick={() => props.fetchPokemonByName(pokemon.name)} key={pokemon.name}>{pokemon.name}</p>
+        </Link>
       )
     })
   }
@@ -49,4 +50,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {fetchPokemons: fetchPokemons})(PokemonList);
+export default connect(mapStateToProps, {fetchPokemons: fetchPokemons, fetchPokemonByName: fetchPokemonByName})(PokemonList);

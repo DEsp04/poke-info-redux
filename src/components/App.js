@@ -7,13 +7,15 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 
 const App = () => { 
   return (
-    <Router>
-      <Switch>
-        <h1>Poke-Info with Redux</h1>
-        <Route exact path="/" component={PokemonList} />
-        <Route exact path="/pokemon-info" component={ PokemonInfo} />
-      </Switch>  
-    </Router>
+    <div>
+      <h1>Poke-Info Redux</h1>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={PokemonList} />
+          <Route exact path="/pokemon-info" component={PokemonInfo} />
+        </Switch>
+      </Router>
+    </div>
   )
 }
 
