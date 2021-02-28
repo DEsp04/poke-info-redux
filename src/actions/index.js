@@ -1,5 +1,5 @@
 import jsonApiCall from "../apis/jsonApiCall";
-
+import _ from 'lodash';
 
 
 export const fetchPokemons = () => { 
@@ -12,11 +12,10 @@ export const fetchPokemons = () => {
 }
 
 export const fetchPokemonByName = (name) => { 
-
   return async (dispatch) => { 
-    const response = await jsonApiCall.get(`pokemon/${name}`)
+    const resp = await jsonApiCall.get(`pokemon/${name}/`)
 
-    dispatch({ type: "FETCH_POKE_INFO", payload: response.data });
+    dispatch({ type: "FETCH_POKE_INFO", payload: resp.data });
   }
 
 }

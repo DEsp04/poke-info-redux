@@ -10,8 +10,7 @@ import { Link } from "react-router-dom";
 
 
 function PokemonList(props) {
-  console.log(props)
-
+  
   useEffect(() => { 
     props.fetchPokemons();
   }, [])
