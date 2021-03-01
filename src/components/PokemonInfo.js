@@ -7,41 +7,27 @@ import { fetchPokemonByName } from '../actions';
 
 
 function PokemonInfo(props) {
-  console.log(props)
-
+  
+  const loading = props.loading;
+  const hasErrors = props.hasErrors;
+  const info = props.info;
 
   useEffect(() => { 
     fetchPokemonByName();
   }, [])
 
 
-  // const pokemonInfo = props.pokemonInfo.info;
-
-  // if (!pokemonInfo) { 
-  //   return null;
-  // }
-
   function renderInfo() { 
-    // if (loading) return <p>Loading Pokémon info...</p>
-    // if (hasErrors) return <p>Unable to display Pokémon</p>
-    return (
-      <div>
-        <h2>info.name</h2>
-      </div>
-    )
+    if (loading) return <p>Loading Pokémon info...</p>
+    if (hasErrors) return <p>Unable to display Pokémon</p>
+    return <div><h2>{info.name}</h2></div>
   }
-
-
 
   return (
     <div>{renderInfo()}</div>
   )
 }
 
-//each time we select a pokemon, the json keeps adding up to the array in the reducer
-// const mapStateToProps = (state) => {
-//   return {pokemonInfo: state.pokemonInfo }
-// }
 
 
 const mapStateToProps = (state) => ({
