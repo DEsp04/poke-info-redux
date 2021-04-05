@@ -2,11 +2,12 @@ import React from 'react';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchPokemonByName } from '../actions';
-
+import { Link } from "react-router-dom";
 
 
 
 function PokemonInfo(props) {
+  // console.log(props)
   
   const loading = props.loading;
   const hasErrors = props.hasErrors;
@@ -24,7 +25,12 @@ function PokemonInfo(props) {
   }
 
   return (
-    <div>{renderInfo()}</div>
+    <div>
+      <Link to="/">
+        Back
+      </Link>
+      {renderInfo()}
+    </div>
   )
 }
 
