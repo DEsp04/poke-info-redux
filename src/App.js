@@ -1,6 +1,4 @@
 import React from 'react';
-import PokemonList from './PokemonList';
-import PokemonInfo from "./PokemonInfo";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 
