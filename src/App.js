@@ -9,7 +9,6 @@ import PokemonDescription from "./screens/PokemonDescription";
 const App = () => { 
   return (
     <div>
-      <h1>Poke-Info Redux</h1>
         <Switch>
           <Route exact path="/">
             <Home />

@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Header from "../components/Header";
+import PokemonList from "../components/PokemonList";
+
 
 export default function Home() {
   return (
     <div>
-      <h2>Home Page</h2>
+      <Header />
+      <PokemonList />
     </div>
   )
 }
