@@ -9,8 +9,17 @@ export default function PokemonList() {
     return state
   })
   
-  console.log(pokemonListRequest);
+  console.log(pokemonListRequest)
 
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchList());
+  }, [dispatch])
+
+
+
+  
   return (
     <div>
       <h2>Pokemon List</h2>

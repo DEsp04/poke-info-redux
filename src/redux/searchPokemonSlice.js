@@ -7,7 +7,7 @@ export const fetchList = createAsyncThunk(
 
   async () => {
     const data = await fetchPokemonsList();
-
+     
     return data;
   }
 );
