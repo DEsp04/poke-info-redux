@@ -9,7 +9,7 @@ export async function fetchPokemonsList() {
 
   const results = await axios.get(pokemonList).then(
     ({ data }) => {
-      console.log(data.results)
+      return data.results;
     }
   );
 
