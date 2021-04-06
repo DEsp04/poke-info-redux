@@ -1,5 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import Home from "./screens/Home";
+import PokemonDescription from "./screens/PokemonDescription";
+
 
 
 
@@ -7,12 +10,14 @@ const App = () => {
   return (
     <div>
       <h1>Poke-Info Redux</h1>
-      <Router>
         <Switch>
-          <Route exact path="/" component={PokemonList} />
-          <Route exact path="/pokemon-info" component={PokemonInfo} />
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/pokemonDescription">
+            <PokemonDescription />
+          </Route>
         </Switch>
-      </Router>
     </div>
   )
 }
