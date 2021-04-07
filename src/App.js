@@ -13,9 +13,7 @@ const App = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/pokemonDescription">
-            <PokemonDescription />
-          </Route>
+        <Route exact path="/pokemonDescription" render={props => <PokemonDescription {...props} />} />
         </Switch>
     </div>
   )

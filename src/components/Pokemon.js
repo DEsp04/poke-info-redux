@@ -4,8 +4,11 @@ import { NavLink } from "react-router-dom"
 export default function Pokemon(props) {
 
   console.log(props)
+
   return (
-    <NavLink
+    
+    <li>
+      <NavLink
       to={{
         pathname: "/pokemonDescription",
         state: props
@@ -15,8 +18,10 @@ export default function Pokemon(props) {
             }
           : {},
       }}
-    >
-      <li>{props.name}</li>
-    </NavLink>
+      >
+        {props.name}
+      </NavLink>
+    </li>
+    
   )
 }
