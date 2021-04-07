@@ -12,8 +12,13 @@ export default function PokemonDescription(props) {
   const requestPokemonInfo = useSelector((state) => {
     return state.pokemonInfo
   })
+  const status = useSelector((state) => {
+    return state.pokemonInfo.status
+  })
 
-  console.log(requestPokemonInfo)
+  console.log(status)
+  // console.log(requestPokemonInfo.pokemonInfo)
+  // console.log(requestPokemonInfo.pokemonInfo.types)
 
   const dispatch = useDispatch();
 
@@ -22,13 +27,23 @@ export default function PokemonDescription(props) {
   }, [dispatch])
 
 
+  const renderPokemonInfo = () => {
+    if (status === "success") {
+      return (
+      <div>
+        <h2>PokemonDescription</h2>
+        <h3>#{requestPokemonInfo.pokemonInfo.id} {props.location.state.name}</h3>
+        <img
+          src={requestPokemonInfo.pokemonInfo.sprites.front_default}
+        />
+      </div>
+      )
+    }
+  }
+
   return (
     <div>
-      <h2>PokemonDescription</h2>
-      <h3>#{requestPokemonInfo.pokemonInfo.id} {props.location.state.name}</h3>
-      <img
-        src={requestPokemonInfo.pokemonInfo.sprites.front_default}
-      />
-    </div>
+      {renderPokemonInfo()}
+    </div>  
   )
 }
