@@ -10,7 +10,7 @@ export default function PokemonDescription(props) {
   const pokemonUrl = props.location.state.pokemonUrl;
 
   const requestPokemonInfo = useSelector((state) => {
-    return state
+    return state.pokemonInfo
   })
 
   console.log(requestPokemonInfo)
@@ -25,7 +25,10 @@ export default function PokemonDescription(props) {
   return (
     <div>
       <h2>PokemonDescription</h2>
-      <h3>{props.location.state.name}</h3>
+      <h3>#{requestPokemonInfo.pokemonInfo.id} {props.location.state.name}</h3>
+      <img
+        src={requestPokemonInfo.pokemonInfo.sprites.front_default}
+      />
     </div>
   )
 }
