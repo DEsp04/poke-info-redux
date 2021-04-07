@@ -1,13 +1,13 @@
 import React from 'react'
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchList } from "../redux/searchPokemonSlice";
+import { fetchList } from "../redux/listPokemonSlice";
 import Pokemon from "../components/Pokemon"
 
 export default function PokemonList() {
 
   const pokemonListRequest = useSelector((state) => {
-    return state.searches.pokemons
+    return state.list.pokemons
   })
   
   console.log(pokemonListRequest)

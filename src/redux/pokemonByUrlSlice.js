@@ -2,7 +2,15 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchPokemonByUrl } from "../services/fetchByUrl";
 
 
-export const fetchUrl = createAsyncThunk();
+export const fetchUrl = createAsyncThunk(
+  "pokemonUrl/fetchUrl",
+  async (url) => {
+    console.log(url)
+    const data = await fetchPokemonByUrl(url);
+
+    return data;
+  }
+);
 
 
 

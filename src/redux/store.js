@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import searchReducer from "./searchPokemonSlice";
+import listReducer from "./listPokemonSlice";
+import urlReducer from "./pokemonByUrlSlice";
 
 
 export default configureStore({
   reducer: {
-    searches: searchReducer,
+    list: listReducer,
+    pokemonInfo: urlReducer,
   }
 })
