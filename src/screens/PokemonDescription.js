@@ -47,6 +47,10 @@ export default function PokemonDescription(props) {
       <div>
         <h2>PokemonDescription</h2>
         <h3>#{requestPokemonInfo.pokemonInfo.id} {props.location.state.name}</h3>
+        <div className="heighWeight">
+          <p>Height: {requestPokemonInfo.pokemonInfo.height / 10}m</p>
+          <p>Weight: {requestPokemonInfo.pokemonInfo.weight / 10}kg</p>
+        </div>
         <img
           src={requestPokemonInfo.pokemonInfo.sprites.front_default}
           />
