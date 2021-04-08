@@ -17,8 +17,7 @@ export default function PokemonDescription(props) {
   })
 
   console.log(status)
-  // console.log(requestPokemonInfo.pokemonInfo)
-  console.log(requestPokemonInfo.pokemonInfo.types)
+  console.log(requestPokemonInfo.pokemonInfo)
 
   const dispatch = useDispatch();
 
@@ -34,6 +33,14 @@ export default function PokemonDescription(props) {
     }
   }
 
+  const pokemonStat = () => {
+    if (status === "success") {
+      return requestPokemonInfo.pokemonInfo.stats.map((stat, index) => {
+        return <li key={index}>{stat.stat.name}: {stat.base_stat}</li>
+      })
+    }
+  }
+
   const renderPokemonInfo = () => {
     if (status === "success") {
       return (
@@ -43,8 +50,15 @@ export default function PokemonDescription(props) {
         <img
           src={requestPokemonInfo.pokemonInfo.sprites.front_default}
           />
-        <p>Type:</p>
-        <ul>{pokemonType()}</ul>
+        <div className="pokemonType">
+          <p>Type:</p>
+          <ul>{pokemonType()}</ul>
+        </div>
+        <div className="pokemonStat">
+          <p>Stats:</p>
+          <ul>{pokemonStat()}</ul>
+        </div>
+       
       </div>
       )
     }
