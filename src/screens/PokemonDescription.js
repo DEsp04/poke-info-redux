@@ -42,9 +42,13 @@ export default function PokemonDescription(props) {
     }
   }
 
+  
+
+
   const pokemonMoves = () => {
     if (status === "success") {
       return requestPokemonInfo.pokemonInfo.moves.map((move, index) => {
+        console.log(move)
         return <Move {...move} key={index} />
       })
     }

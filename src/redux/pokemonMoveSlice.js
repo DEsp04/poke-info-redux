@@ -8,6 +8,9 @@ export const fetchMove = createAsyncThunk(
   async (url) => {
     const data = await fetchPokemonMoves(url);
 
+    console.log(url)
+    console.log("hello")
+
     return data;
     }
 );
