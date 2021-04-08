@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUrl } from "../redux/pokemonByUrlSlice";
+import Move from "../components/Move";
 
 
 export default function PokemonDescription(props) {
@@ -41,6 +42,14 @@ export default function PokemonDescription(props) {
     }
   }
 
+  const pokemonMoves = () => {
+    if (status === "success") {
+      return requestPokemonInfo.pokemonInfo.moves.map((move, index) => {
+        return <Move {...move} key={index} />
+      })
+    }
+  }
+
   const renderPokemonInfo = () => {
     if (status === "success") {
       return (
@@ -62,7 +71,10 @@ export default function PokemonDescription(props) {
           <p>Stats:</p>
           <ul>{pokemonStat()}</ul>
         </div>
-       
+        <div className="pokemonMoves">
+          <p>Moves:</p>
+          <ul>{pokemonMoves()}</ul>
+        </div>
       </div>
       )
     }
