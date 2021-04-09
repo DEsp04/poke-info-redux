@@ -1,24 +1,32 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUrl } from "../redux/pokemonByUrlSlice";
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
+
 
 
 export default function Image(props) {
 
-  console.log(props)
+  const [image, setImage] = useState(undefined);
   const pokemonUrl = props.url
 
-  const requestPokemonInfo = useSelector((state) => {
-    return state.pokemonInfo
-  })
-  const status = useSelector((state) => {
-    return state.pokemonInfo.status
-  })
 
+  const fetchImage = async () => {
+    const response = await axios.get(pokemonUrl);
+    setImage(response.data)
+  }
 
-  return (
-    
-      <p>hello</p>
+  useEffect(() => { 
+    fetchImage();
+  }, [])
 
-  )
-}
+  // console.log(image.sprites.front_default)
+
+  if (image !== undefined) {
+    return (
+      <img src={image.sprites.front_default} />
+    ) } else { 
+      return (
+        <div></div>
+      )
+    }
+  }
+  

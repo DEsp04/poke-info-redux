@@ -24,7 +24,7 @@ export default function PokemonDescription(props) {
 
   useEffect(() => {
     dispatch(fetchUrl(pokemonUrl))
-  }, [dispatch])
+  }, [])
 
   const pokemonType = () => {
     if (status === "success") {
