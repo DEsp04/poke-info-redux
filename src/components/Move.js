@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMove } from "../redux/pokemonMoveSlice";
+// import { useDispatch, useSelector } from "react-redux";
+// import { fetchMove } from "../redux/pokemonMoveSlice";
 import axios from "axios"
 
 
@@ -10,7 +10,7 @@ export default function Moves(props) {
   const [moveDescrip, setMoveDescrip] = useState(undefined);
 
   let moveUrl = props.move.url;
-  console.log(moveUrl)
+  // console.log(moveUrl)
 
   const fetchDescription = async () => {
     const response = await axios.get(moveUrl);
@@ -21,7 +21,7 @@ export default function Moves(props) {
     fetchDescription();
   }, [])
 
-  console.log(moveDescrip)
+  // console.log(moveDescrip)
 
 //Below is the code using redux tool kit but we get double of move
   // const requestPokemonMove = useSelector((state) => {

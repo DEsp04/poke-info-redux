@@ -5,8 +5,8 @@ import Move from "../components/Move";
 
 
 export default function PokemonDescription(props) {
-  console.log(props.location.state)
-  console.log(props.location.state.pokemonUrl)
+  // console.log(props.location.state)
+  // console.log(props.location.state.pokemonUrl)
 
   const pokemonUrl = props.location.state.pokemonUrl;
 
@@ -48,7 +48,6 @@ export default function PokemonDescription(props) {
   const pokemonMoves = () => {
     if (status === "success") {
       return requestPokemonInfo.pokemonInfo.moves.map((move, index) => {
-        console.log(move)
         return <Move {...move} key={index} />
       })
     }

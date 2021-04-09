@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
+import Image from "./Image"
 
 export default function Pokemon(props) {
 
@@ -8,6 +9,7 @@ export default function Pokemon(props) {
   return (
     
     <li>
+      <Image {...props} />
       <NavLink
       to={{
         pathname: "/pokemonDescription",
