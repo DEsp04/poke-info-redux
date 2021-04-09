@@ -9,7 +9,6 @@ export default function Pokemon(props) {
   return (
     
     <li>
-      <Image {...props} />
       <NavLink
       to={{
         pathname: "/pokemonDescription",
@@ -21,6 +20,7 @@ export default function Pokemon(props) {
           : {},
       }}
       >
+        <Image {...props} />
         {props.name}
       </NavLink>
     </li>
