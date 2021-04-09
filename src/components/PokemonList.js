@@ -30,7 +30,11 @@ export default function PokemonList() {
   return (
     <div>
       <h2>Pokemon List</h2>
-
+      <div className="prevNextButtons">
+        <button>Prev</button>
+        <button>Next</button>
+        
+      </div>
       <ul>
         {renderPokemonList()}
       </ul>
