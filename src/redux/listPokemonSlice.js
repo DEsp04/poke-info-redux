@@ -5,9 +5,10 @@ import { fetchPokemonsList } from "../services/fetchPokemon";
 export const fetchList = createAsyncThunk(
   "pokemonList/fetchPokemonsList",
 
-  async () => {
+  async (next) => {
+    console.log(next)
 
-    const data = await fetchPokemonsList();
+    const data = await fetchPokemonsList(next);
      
     return data;
   }

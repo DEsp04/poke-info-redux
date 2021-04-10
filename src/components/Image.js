@@ -16,7 +16,7 @@ export default function Image(props) {
 
   useEffect(() => { 
     fetchImage();
-  }, [])
+  }, [pokemonUrl])
 
   // console.log(image.sprites.front_default)
 
