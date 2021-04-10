@@ -16,8 +16,8 @@ export default function PokemonList() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchList(next));
-  }, [dispatch])
+    dispatch(fetchList());
+  }, [])
 
 
   const renderPokemonList = () => {
@@ -27,16 +27,16 @@ export default function PokemonList() {
   }
 
   const handleNextList = () => {
-    setNext(next + 20);
-    dispatch(fetchList(next));
+    // setNext(nextCount => nextCount + 20);
+    dispatch(fetchList("next"));
   }
 
   const handlePrevList = () => {
-    setNext(next - 20);
-    dispatch(fetchList(next));
+    // setNext(prevCount => prevCount - 20);
+    dispatch(fetchList("prev"));
   }
 
- console.log(next)
+  
   
   return (
     <div>

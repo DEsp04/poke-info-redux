@@ -1,14 +1,25 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchPokemonsList } from "../services/fetchPokemon";
 
+let nextPrev = 0;
 
 export const fetchList = createAsyncThunk(
   "pokemonList/fetchPokemonsList",
 
   async (next) => {
-    console.log(next)
 
-    const data = await fetchPokemonsList(next);
+    console.log(next)
+    console.log(nextPrev)
+    
+  
+
+    if (next === "next") {
+      nextPrev += 20;
+    } else if (next === "prev"){
+      nextPrev -= 20;
+    }
+
+    const data = await fetchPokemonsList(nextPrev);
      
     return data;
   }
@@ -24,6 +35,7 @@ const listSlice = createSlice({
     pokemons: [],
     status: null,
   },
+  
   extraReducers: {
     [fetchList.pending]: (state, action) => {
       state.status = "loading pokemons...";
