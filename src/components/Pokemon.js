@@ -4,7 +4,7 @@ import Image from "./Image"
 
 export default function Pokemon(props) {
 
-  console.log(props)
+  // console.log(props)
 
   return (
     
