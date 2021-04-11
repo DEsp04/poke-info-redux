@@ -8,8 +8,8 @@ export const fetchList = createAsyncThunk(
 
   async (next) => {
 
-    console.log(next)
-    console.log(nextPrev)
+    // console.log(next)
+    
     
   
 
@@ -19,6 +19,8 @@ export const fetchList = createAsyncThunk(
       nextPrev -= 20;
     }
 
+    console.log(nextPrev)
+    
     const data = await fetchPokemonsList(nextPrev);
      
     return data;

@@ -27,13 +27,38 @@ export default function PokemonList() {
   }
 
   const handleNextList = () => {
-    // setNext(nextCount => nextCount + 20);
+    setNext(nextCount => nextCount + 20);
     dispatch(fetchList("next"));
   }
 
   const handlePrevList = () => {
-    // setNext(prevCount => prevCount - 20);
+    setNext(prevCount => prevCount - 20);
     dispatch(fetchList("prev"));
+  }
+
+  console.log(next)
+
+  const buttons = () => {
+    if (next === 1100) {
+      return (
+        <div className="prevNextButtons">
+          <button onClick={handlePrevList}>Prev</button>
+        </div>
+      )
+    } else if (next === 0) {
+        return (
+          <div className="prevNextButtons">
+            <button onClick={handleNextList}>Next</button>
+          </div>
+        )
+    } else if (next > 0) {
+      return (
+        <div className="prevNextButtons">
+          <button onClick={handlePrevList}>Prev</button>
+          <button onClick={handleNextList}>Next</button>
+        </div>
+      ) 
+    }
   }
 
   
@@ -41,11 +66,7 @@ export default function PokemonList() {
   return (
     <div>
       <h2>Pokemon List</h2>
-      <div className="prevNextButtons">
-        <button onClick={handlePrevList}>Prev</button>
-        <button onClick={handleNextList}>Next</button>
-        
-      </div>
+      {buttons()}
       <ul>
         {renderPokemonList()}
       </ul>
