@@ -38,42 +38,38 @@ export default function PokemonList() {
     dispatch(decrement(20));
   }
 
-  console.log(nextList)
+  console.log(nextList.count)
 
-  // const buttons = () => {
-  //   if (next > 0) {
-  //     return (
-  //       <div className="prevNextButtons">
-  //         <button onClick={handlePrevList}>Prev</button>
-  //         <button onClick={handleNextList}>Next</button>
-  //       </div>
-  //     ) 
-  //   }
-  //   else if (next === 1100) {
-  //     return (
-  //       <div className="prevNextButtons">
-  //         <button onClick={handlePrevList}>Prev</button>
-  //       </div>
-  //     )
-  //   } else if (next === 0) {
-  //       return (
-  //         <div className="prevNextButtons">
-  //           <button onClick={handleNextList}>Next</button>
-  //         </div>
-  //       )
-  //   } 
-  // }
+  const buttons = () => {
+    if (nextList.count > 0) {
+      return (
+        <div className="prevNextButtons">
+          <button onClick={handlePrevList}>Prev</button>
+          <button onClick={handleNextList}>Next</button>
+        </div>
+      ) 
+    }
+    else if (nextList.count === 1100) {
+      return (
+        <div className="prevNextButtons">
+          <button onClick={handlePrevList}>Prev</button>
+        </div>
+      )
+    } else if (nextList.count === 0) {
+        return (
+          <div className="prevNextButtons">
+            <button onClick={handleNextList}>Next</button>
+          </div>
+        )
+    } 
+  }
 
   
   
   return (
     <div>
       <h2>Pokemon List</h2>
-      {/* {buttons()} */}
-      <div className="prevNextButtons">
-          <button onClick={handlePrevList}>Prev</button>
-          <button onClick={handleNextList}>Next</button>
-        </div>
+      {buttons()}
       <ul>
         {renderPokemonList()}
       </ul>
