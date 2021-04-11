@@ -8,10 +8,6 @@ export const fetchList = createAsyncThunk(
 
   async (next) => {
 
-    // console.log(next)
-    
-    
-  
 
     if (next === "next") {
       nextPrev += 20;
@@ -36,6 +32,7 @@ const listSlice = createSlice({
   initialState: {
     pokemons: [],
     status: null,
+    next: 0,
   },
   
   extraReducers: {
