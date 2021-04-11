@@ -41,15 +41,7 @@ export default function PokemonList() {
   console.log(nextList.count)
 
   const buttons = () => {
-    if (nextList.count > 0) {
-      return (
-        <div className="prevNextButtons">
-          <button onClick={handlePrevList}>Prev</button>
-          <button onClick={handleNextList}>Next</button>
-        </div>
-      ) 
-    }
-    else if (nextList.count === 1100) {
+   if (nextList.count === 1100) {
       return (
         <div className="prevNextButtons">
           <button onClick={handlePrevList}>Prev</button>
@@ -61,7 +53,14 @@ export default function PokemonList() {
             <button onClick={handleNextList}>Next</button>
           </div>
         )
-    } 
+    } else if (nextList.count > 0) {
+      return (
+        <div className="prevNextButtons">
+          <button onClick={handlePrevList}>Prev</button>
+          <button onClick={handleNextList}>Next</button>
+        </div>
+      ) 
+    }
   }
 
   
